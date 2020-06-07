@@ -17,6 +17,11 @@
 </head>
 
 <body>
+	<c:set var="result" value="${requestScope.databaseResult}"></c:set>
+	<c:if test="${result != null}">
+		<p>Result of database operation: ${result}</p>
+	</c:if>
+	
 	<jsp:useBean id="myBean" class="databasePackage.DataTypeBean"></jsp:useBean>
 	<jsp:setProperty property="dataType" name="myBean" param="dataType"/>
 
