@@ -2,23 +2,24 @@ package databasePackage;
 
 public class TableBean {
 
-	private String table = "customer";
-	private String[] tableNames = {"customer", "drive", "settings"};
+	private String dataType = "customer";
+	private String[] dataTypeNames = {"customer", "drive", "settings"};
 	
 	public TableBean() {
 		
 	}
 
-	public String getTable() {
-		return table;
+	public String getDataType() {
+		return dataType;
 	}
 
-	public void setTable(String table) {
-		this.table = table;
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
 	}
 
-	public String[] getTableNames() {
-		return tableNames;
+	public String[] getDataTypeNames() {
+		return dataTypeNames;
 	}
+
 
 }

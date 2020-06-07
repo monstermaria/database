@@ -9,8 +9,8 @@
 <title>Database Interface</title>
 
 	<script type="text/javascript">
-		function changeTable() {
-			document.getElementById("tableForm").submit();
+		function changeDataType() {
+			document.getElementById("choiceForm").submit();
 		}
 	</script>
 	
@@ -18,18 +18,18 @@
 
 <body>
 	<jsp:useBean id="myBean" class="databasePackage.TableBean"></jsp:useBean>
-	<jsp:setProperty property="table" name="myBean" param="table"/>
+	<jsp:setProperty property="dataType" name="myBean" param="dataType"/>
 
-	<form id="tableForm" action="ChooseTableServlet" method="get">
-		<label for="select">Choose a table to add data to:</label>
-		<select id="select" name="table" onchange="changeTable()">
-    		<c:forEach var="item" items="${myBean.tableNames}">
-		        <option value="${item}" ${item == myBean.table ? 'selected="selected"' : ''}>${item}</option>
+	<form id="choiceForm" action="ChooseDataTypeServlet" method="get">
+		<label for="select">Choose a type of data to add:</label>
+		<select id="select" name="dataType" onchange="changeDataType()">
+    		<c:forEach var="item" items="${myBean.dataTypeNames}">
+		        <option value="${item}" ${item == myBean.dataType ? 'selected="selected"' : ''}>${item}</option>
 		    </c:forEach>
 		</select>
 	</form>
 			
-	<jsp:include page="${myBean.table}-form.jsp"></jsp:include>
+	<jsp:include page="${myBean.dataType}-form.jsp"></jsp:include>
 
 </body>
 </html>
