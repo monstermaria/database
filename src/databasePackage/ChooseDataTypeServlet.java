@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class ChooseTableServlet
  */
 @WebServlet("/ChooseTableServlet")
-public class ChooseTableServlet extends HttpServlet {
+public class ChooseDataTypeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChooseTableServlet() {
+    public ChooseDataTypeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
