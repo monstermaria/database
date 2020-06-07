@@ -31,7 +31,7 @@
 			
 	<form action="DatabaseInterfaceServlet" method="post">
 		<jsp:include page="${myBean.dataType}-form.jsp"></jsp:include>
-		<input type="text" value="${myBean.dataType}" hidden="true">
+		<input type="text" name="dataType" value="${myBean.dataType}" hidden="true">
 		<input type="submit" value="Add ${myBean.dataType}">
 	</form>	
 
