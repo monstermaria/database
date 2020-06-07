@@ -22,17 +22,17 @@ public class DatabaseInterfaceServlet extends HttpServlet {
      */
     public DatabaseInterfaceServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		System.out.println("Servlet get method");
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
