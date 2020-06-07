@@ -50,6 +50,18 @@ public class SQLConnection {
 		request.setAttribute("databaseResult", "Customer added");
 	}
 
+	static int convertStringToInteger(String dataString) {
+		
+		try {
+			return Integer.valueOf(dataString);
+			
+		} catch (NumberFormatException e) {
+			
+			// if conversion can't be made, return 0
+			return 0;
+		}
+	}
+	
 	static void handleDrive(HttpServletRequest request) throws SQLException {
 		
 		// note to self: DriveID is AUTO_INCREMENT, and does not have to be given
@@ -63,8 +75,8 @@ public class SQLConnection {
 		// gather data
 		statement.setString(1, request.getParameter("drive-name"));
 		statement.setString(2, request.getParameter("serial-number"));
-		statement.setInt(3, Integer.valueOf(request.getParameter("customer-id")));
-		statement.setInt(4, Integer.valueOf(request.getParameter("settings-id")));
+		statement.setInt(3, convertStringToInteger(request.getParameter("customer-id")));
+		statement.setInt(4, convertStringToInteger(request.getParameter("settings-id")));
 		
 		// send update command
 		int result = statement.executeUpdate();
@@ -77,8 +89,8 @@ public class SQLConnection {
 	static void handleSettings(HttpServletRequest request) throws SQLException {
 		
 		// note to self: SettingsID is AUTO_INCREMENT, and does not have to be given
-		String insertCommand = "INSERT INTO customers (SettingsName, CustomerID, Setting1, Setting2, Setting3) ";
-		insertCommand += "VALUES (?, ?, ?, ?);";
+		String insertCommand = "INSERT INTO settings (SettingsName, CustomerID, Setting1, Setting2, Setting3) ";
+		insertCommand += "VALUES (?, ?, ?, ?, ?);";
 		
 		System.out.println(insertCommand);
 				
@@ -86,10 +98,10 @@ public class SQLConnection {
 		
 		// gather data
 		statement.setString(1, request.getParameter("settings-name"));
-		statement.setInt(2, Integer.valueOf(request.getParameter("customer-id")));
-		statement.setInt(3, Integer.valueOf(request.getParameter("setting1")));
-		statement.setInt(4, Integer.valueOf(request.getParameter("setting2")));
-		statement.setInt(5, Integer.valueOf(request.getParameter("setting3")));
+		statement.setInt(2, convertStringToInteger(request.getParameter("customer-id")));
+		statement.setInt(3, convertStringToInteger(request.getParameter("setting1")));
+		statement.setInt(4, convertStringToInteger(request.getParameter("setting2")));
+		statement.setInt(5, convertStringToInteger(request.getParameter("setting3")));
 		
 		// send update command
 		int result = statement.executeUpdate();
@@ -105,9 +117,9 @@ public class SQLConnection {
 		ensureConnection();
 
 		// check what table to add data to
-		String table = request.getParameter("table");
+		String dataType = request.getParameter("dataType");
 		
-		switch (table) {
+		switch (dataType) {
 		case "customer":
 			handleCustomer(request);
 			break;
@@ -119,7 +131,7 @@ public class SQLConnection {
 			break;
 		default:
 			// this should never happen
-			request.setAttribute("databaseResult", "Table " + table + " not handled");
+			request.setAttribute("databaseResult", "Data type " + dataType + " not handled");
 		}
 	}
 }
