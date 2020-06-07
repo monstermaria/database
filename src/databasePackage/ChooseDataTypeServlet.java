@@ -21,7 +21,6 @@ public class ChooseDataTypeServlet extends HttpServlet {
      */
     public ChooseDataTypeServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -29,7 +28,7 @@ public class ChooseDataTypeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String parameter = request.getParameter("table");
+		String parameter = request.getParameter("dataType");
 		
 		System.out.println(parameter);
 		
@@ -41,7 +40,7 @@ public class ChooseDataTypeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at (post): ").append(request.getContextPath());
 	}
 
