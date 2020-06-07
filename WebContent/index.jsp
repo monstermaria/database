@@ -29,7 +29,11 @@
 		</select>
 	</form>
 			
-	<jsp:include page="${myBean.dataType}-form.jsp"></jsp:include>
+	<form action="DatabaseInterfaceServlet" method="post">
+		<jsp:include page="${myBean.dataType}-form.jsp"></jsp:include>
+		<input type="text" value="${myBean.dataType}" hidden="true">
+		<input type="submit" value="Add ${myBean.dataType}">
+	</form>	
 
 </body>
 </html>
