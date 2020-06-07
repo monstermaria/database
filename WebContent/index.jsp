@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<jsp:useBean id="myBean" class="databasePackage.TableBean"></jsp:useBean>
+	<jsp:useBean id="myBean" class="databasePackage.DataTypeBean"></jsp:useBean>
 	<jsp:setProperty property="dataType" name="myBean" param="dataType"/>
 
 	<form id="choiceForm" action="ChooseDataTypeServlet" method="get">

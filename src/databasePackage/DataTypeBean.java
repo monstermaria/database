@@ -1,11 +1,11 @@
 package databasePackage;
 
-public class TableBean {
+public class DataTypeBean {
 
 	private String dataType = "customer";
 	private String[] dataTypeNames = {"customer", "drive", "settings"};
 	
-	public TableBean() {
+	public DataTypeBean() {
 		
 	}
 
@@ -20,6 +20,5 @@ public class TableBean {
 	public String[] getDataTypeNames() {
 		return dataTypeNames;
 	}
-
-
+	
 }
